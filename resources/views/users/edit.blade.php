@@ -1,7 +1,7 @@
 @extends('base')
 @section('title', 'edit user')
 @section('content')
-    <form hx-put="{{route('users.update', $user)}}">
+    <form hx-put="{{route('users.update', $user)}}" hx-indicator="#spinner">
         @csrf
         <div class="form-group">
             <label>Name</label>
@@ -14,4 +14,5 @@
         <button class="btn">Submit</button>
         <button class="btn" hx-get="{{route('users.show', $user)}}">Cancel</button>
     </form>
+    <img id="spinner" class="htmx-indicator" src="{{\Illuminate\Support\Facades\URL::asset('/storage/spinner.gif')}}">
 @endsection

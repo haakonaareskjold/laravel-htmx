@@ -30,15 +30,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $user = new User();
+        $user = User::query()->create(($request->validate([
+            'name' => 'required|min:3|max:255',
+            'email' => 'required',
+            'password' => 'required|min:8|max:255',
+        ])));
 
-        $user->name =  $request->input('name');
-        $user->email =  $request->input('email');
-        $user->password =  $request->input('password');
-
-        $user->save();
-
-        return redirect()->route('users.index')->with('message', 'user created');
+       return view('users.show', compact('user'));
     }
 
     /**
