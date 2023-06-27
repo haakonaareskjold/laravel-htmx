@@ -5,4 +5,5 @@ tr.htmx-swapping td {
 .htmx-indicator {
     position: absolute;
     top: 25vh;
+    z-index: -1;
 }
