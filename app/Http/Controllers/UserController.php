@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
-use function Psy\debug;
 
 class UserController extends Controller
 {

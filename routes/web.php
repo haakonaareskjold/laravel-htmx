@@ -15,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    try {
+        \Illuminate\Support\Facades\DB::connection()->getPdo();
+    } catch (Exception $e) {
+        abort($e instanceof  PDOException ? 503 : 500);
+    }
+
    return redirect()->route('users.index');
 });
 
